@@ -27,5 +27,5 @@ if you want to try the page you need to:
 - Than you can mess around with the settings and test everything. 
 
 It should look like that:
-![Image of The Website](https://github.com/toger5/godotdevs-Forum/Themes/aldo/images/screnshotpage1.png)
+![Image of The Website](https://github.com/toger5/godotdevs-Forum/blob/master/Themes/aldo/images/screnshotpage1.png)
 
