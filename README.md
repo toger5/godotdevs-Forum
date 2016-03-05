@@ -29,3 +29,7 @@ if you want to try the page you need to:
 It should look like that:
 ![Image of The Website](https://github.com/toger5/godotdevs-Forum/blob/master/Themes/aldo/images/screnshotpage1.png)
 
+List of settings (SMF) which should be changed when setting up a new SMF page with that theme:
+ - profil/avatar image size: 100px, 100px
+ - image upload file size is very small and needs to be increast (jou should at least be able to uploat 1080p images)
+ - Max width of posted pictures should be set to:    width: 720 (otherwise there will be scrollbars ;( )
