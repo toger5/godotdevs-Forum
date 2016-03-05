@@ -94,3 +94,53 @@ var smf_addListItemHoverEvents = function()
 // Add hover events to list items if the browser requires it.
 if (is_ie7down && 'attachEvent' in window)
 	window.attachEvent('onload', smf_addListItemHoverEvents);
+
+var toggled = true;
+jQuery(function($) { // DOM is now read and ready to be manipulated
+
+	var size = $(".user").css("width")
+	var padding = $(".user").css("padding")
+	size = parseInt(size.slice(0,3));
+	padding = parseInt(padding.slice(0,2));
+
+	var amount = "-" + String(size + padding - 30) + "px"
+
+	$("#toggle-in").css("opacity", "1.0");
+	$("#toggle-out").css("opacity", "0.0");
+	$(".user").css("right", amount);
+
+
+
+  $("#toggle-user-button").click(function () {
+		var size = $(".user").css("width")
+		var padding = $(".user").css("padding")
+		size = parseInt(size.slice(0,3));
+		padding = parseInt(padding.slice(0,2));
+
+		var amount = "-" + String(size + padding - 30) + "px"
+		if (toggled){
+			$("#toggle-out").animate({opacity: "1.0"});
+			$("#toggle-in").animate({opacity: "0.0"});
+			amount = "0px"
+			toggled = false
+		}
+		else{
+			toggled = true
+			$("#toggle-out").animate({opacity: "0.0"});
+			$("#toggle-in").animate({opacity: "1.0"});}
+			$(".user").animate({
+    		right: amount
+  		});
+  });
+});
+
+/*addToggelToUserRight();
+/*$("#user-button-toggle").click(function(){
+		console.log('Hallo')
+    $(".user").animate({
+        right: '-250px',
+        opacity: '0.5',
+        height: '150px',
+        width: '150px'
+    });
+});*/

@@ -33,7 +33,7 @@
 
 	For more information on the templating system, please see the site at:
 	http://www.simplemachines.org/
-      
+
         Aldo (Premium) theme by Mick idesign360.com
 */
 
@@ -179,7 +179,7 @@ function template_body_above()
 
 	<div id="header">
 		<div class="wrapper">
-		
+
 			<div id="logo">
 				<a href="'.$scripturl.'" title=""></a>
 			</div>
@@ -189,44 +189,17 @@ function template_body_above()
 	</div>
 
 	<div id="info_bar">
+    <div id="featured-projects">';
+      for($i = 0;$i <= 6; $i++){
+        echo'<div class="feature-panel">
+        <div class="feature-box"></div>
+        <p>Project ', $i ,'</p>
+
+        </div>';
+      }
+    echo'
+    </div>
 		<div class="wrapper">
-			   <div class="user">';
-
-				// If the user is logged in, display stuff like their name, new messages, etc.
-				if ($context['user']['is_logged'])
-				{
-					if (!empty($context['user']['avatar']))
-					echo '
-						<p class="avatar">', $context['user']['avatar']['image'], '</p>';
-					echo '
-						<ul class="reset">
-							<li class="greeting">', $txt['hello_member_ndt'], ' <span>', $context['user']['name'], '</span></li>
-							<li><a href="', $scripturl, '?action=unread">', $txt['unread_since_visit'], '</a></li>
-							<li><a href="', $scripturl, '?action=unreadreplies">', $txt['show_unread_replies'], '</a></li>';
-
-
-					// Is the forum in maintenance mode?
-					if ($context['in_maintenance'] && $context['user']['is_admin'])
-					echo '
-						<strong>', $txt['maintenance'], '</strong>';
-
-					// Are there any members waiting for approval?
-					if (!empty($context['unapproved_members']))
-					echo '
-						<a href="', $scripturl, '?action=admin;area=viewmembers;sa=browse;type=approve">(', $context['unapproved_members'] , ' ', $txt['approval_member'], ')</a>';
-
-					if (!empty($context['open_mod_reports']) && $context['show_open_reports'])
-					echo '
-						<a href="', $scripturl, '?action=moderate;area=reports">(', $context['open_mod_reports'], ' ', $txt['open_reports'], ')</a>';
-
-			
-					echo '
-					<li>', $context['current_time'], '</li>
-						</ul>';
-					}
-			
-		echo '
-			   </div>
 				<div class="news">';
 
 	// Show a random news item? (or you could pick one from news_lines...)
@@ -239,8 +212,77 @@ function template_body_above()
 		</div>
 	</div>
 
-	<div id="main_b">
-               <div class="wrapper">
+	<div id="main_b">';
+
+
+
+
+
+
+
+
+
+
+
+
+  // If the user is logged in, display stuff like their name, new messages, etc.
+  if ($context['user']['is_logged'])
+  {
+    echo '
+    <div class="user" id="user-panel">';
+      if (!empty($context['user']['avatar']))
+      echo '
+         <p class="avatar">', $context['user']['avatar']['image'], '</p>';
+      echo '
+        <div id="toggle-user-button"> <img id="toggle-out" src="', $settings['theme_url'], '/images/custom/ui_toggle_button_out.png"><img id="toggle-in" src="', $settings['theme_url'], '/images/custom/ui_toggle_button_in.png"></img></div>';
+      echo '
+         <ul class="reset">
+           <li class="greeting">', $txt['hello_member_ndt'], ' <span>', $context['user']['name'], '</span></li>
+           <li><a href="', $scripturl, '?action=unread">', $txt['unread_since_visit'], '</a></li>
+           <li><a href="', $scripturl, '?action=unreadreplies">', $txt['show_unread_replies'], '</a><br />&nbsp;</li>';
+
+
+       // Is the forum in maintenance mode?
+       if ($context['in_maintenance'] && $context['user']['is_admin'])
+       echo '
+         <strong>', $txt['maintenance'], '</strong>';
+
+       // Are there any members waiting for approval?
+       if (!empty($context['unapproved_members']))
+       echo '
+         <a href="', $scripturl, '?action=admin;area=viewmembers;sa=browse;type=approve">(', $context['unapproved_members'] , ' ', $txt['approval_member'], ')</a>';
+
+       if (!empty($context['open_mod_reports']) && $context['show_open_reports']){
+       echo '
+         <a href="', $scripturl, '?action=moderate;area=reports">(', $context['open_mod_reports'], ' ', $txt['open_reports'], ')</a>';
+       }
+
+       echo '
+        <li>', $context['current_time'], '</li>
+       </ul>
+     </div>';
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      echo'
+
+              <div class="wrapper">
+              <p id="project-Text"> Projects </p>
 			<div id="main_content">';
 
 			// Show the navigation tree.
@@ -273,7 +315,7 @@ function template_body_below()
 				if(!empty($settings['rss_url']))
 				echo '
 		                     <a href="', $settings['rss_url'] , '" class="icon-button rss"><i class="icon-rss"></i><span></span></a>';
-echo ' 
+echo '
 
         </div>';
 
@@ -320,11 +362,11 @@ function template_html_below()
 					$(".go-top").fadeOut(200);
 				}
 			});
-			
+
 			// Animate the scroll to top
 			$(".go-top").click(function(event) {
 				event.preventDefault();
-				
+
 				$("html, body").animate({scrollTop: 0}, 1000);
 			})
 		});
@@ -446,7 +488,7 @@ function template_button_strip($button_strip, $direction = 'top', $strip_options
 
 	if (!is_array($strip_options))
 		$strip_options = array();
-		
+
 	// List the buttons in reverse order for RTL languages.
 	if ($context['right_to_left'])
 		$button_strip = array_reverse($button_strip, true);
