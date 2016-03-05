@@ -1,5 +1,9 @@
 #A SMF 2.0 forum for the godot community.
 
+There is currently a test instance online:
+
+#[Godotdevs.com](http://godotdevs.byethost13.com/index.php)
+
 The forum is based on the SMF 2.0 forum system.
 I installed the ALDO theme and modified colors and icons that it fits to the Godot engine.
 If you want to try it out you also need to use a database which I also provide in the git repository.
@@ -21,8 +25,9 @@ if you want to try the page you need to:
   $db_persist = 0;
   $db_error_send = 1;
   </code></pre>
-    The mysql database isn't secured with a password. So you dont need any other settings
+- in addation you need to change the source folder directorys to the path of you website (also in the settings.php)
 - Now you should be able to visit the Apache server where you copied all other files (except the database) of this repository.
+- you may have to go to admin/themes and change the theme sourcepaths too
 - Login with username: admin passwort admin
 - Than you can mess around with the settings and test everything. 
 
@@ -33,3 +38,5 @@ It should look like that:
  - profil/avatar image size: 100px, 100px
  - image upload file size is very small and needs to be increast (jou should at least be able to uploat 1080p images)
  - Max width of posted pictures should be set to:    width: 720 (otherwise there will be scrollbars ;( )
+ 
+
