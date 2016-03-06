@@ -26,6 +26,7 @@ if you want to try the page you need to:
   $db_error_send = 1;
   </code></pre>
 - in addation you need to change the source folder directorys to the path of you website (also in the settings.php)
+- and all the url and directorys in the db (these can be found in the two tables: smf_themes and smf_settings) visit this link for detailed instruction: [SiteGroundHElpFor moving SMF Forums](https://www.siteground.com/kb/i_would_like_to_move_my_smf_site_from_a_subfolder_to_my_main/)
 - Now you should be able to visit the Apache server where you copied all other files (except the database) of this repository.
 - you may have to go to admin/themes and change the theme sourcepaths too
 - Login with username: admin passwort admin
