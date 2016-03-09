@@ -106,8 +106,22 @@ function template_html_above()
 
 	// Here comes the JavaScript bits!
 	echo '
-	<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/script.js?fin20"></script>
+	<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/script.js?fin20"></script>';
+	//declaration fuer meine variablen in der theme.js file
+		$UserLoggedIn = "false";
+	if(!empty($context['user']['avatar'])){
+		$UserLoggedIn = "true";
+	}else{
+		$UserLoggedIn = "false";
+	}
+	echo'
+	<script type="text/javascript">
+	 	var userLoggedIn = ',$UserLoggedIn,';
+	</script>
+
+
 	<script type="text/javascript" src="', $settings['theme_url'], '/scripts/theme.js?fin20"></script>
+
 	<script type="text/javascript"><!-- // --><![CDATA[
 		var smf_theme_url = "', $settings['theme_url'], '";
 		var smf_default_theme_url = "', $settings['default_theme_url'], '";
@@ -129,8 +143,9 @@ function template_html_above()
 	<meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '" />
 	<meta name="description" content="', $context['page_title_html_safe'], '" />', !empty($context['meta_keywords']) ? '
 	<meta name="keywords" content="' . $context['meta_keywords'] . '" />' : '', '
-	<title>', $context['page_title_html_safe'], '</title>';
 
+	<title>', $context['page_title_html_safe'], '</title>';
+  //<meta name="viewport" content="width=device-width; initial-scale = 1.0; maximum-scale=1.0; user-scalable=no" />
 	// Please don't index these Mr Robot.
 	if (!empty($context['robot_no_index']))
 		echo '
@@ -188,25 +203,58 @@ function template_body_above()
 		</div>
 	</div>
 
-	<div id="info_bar">
-    <div id="featured-projects">';
+
+
+	<div id="info_bar">';
+
+//The feature bar for all featured Projects______________________meintest
+/*$servername = "localhost:3306";
+$username = "test";
+$password = "";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+//create sql statement
+$sql = 'SELECT * FROM smf_members';
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["topic"];
+    }
+} /*else {
+    echo "0 results";
+}*/
+
+//$conn->close();
+
+
+	  echo'
+			<div id="featured-projects">';
       for($i = 0;$i <= 6; $i++){
         echo'<div class="feature-panel">
         <div class="feature-box"></div>
         <p>Project ', $i ,'</p>
 
-        </div>';
-      }
+      </div>';
+    }
     echo'
     </div>
 		<div class="wrapper">
 				<div class="news">';
 
 	// Show a random news item? (or you could pick one from news_lines...)
+	/*
 	if (!empty($settings['enable_news']))
 		echo '
 				<p>', $context['random_news_line'], '</p>';
-
+*/
 			echo '
 				</div>
 		</div>
@@ -281,8 +329,8 @@ function template_body_above()
 
       echo'
 
-              <div class="wrapper">
-              <p id="project-Text"> Projects </p>
+      <div class="wrapper">
+        <p id="project-Text"> Projects </p>
 			<div id="main_content">';
 
 			// Show the navigation tree.
@@ -327,7 +375,7 @@ echo '
 	<div id="footer">
             <div class="wrapper">
 		<ul class="reset">
-			<li class="copyright">', theme_copyright(), ' | <strong>Aldo</strong> by Mick. G | <a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="', $txt['valid_xhtml'], '"><span>', $txt['xhtml'], '</span></a> |
+			<li class="copyright">', theme_copyright(), ' | <strong>Aldo</strong> by Mick. G, adapted to Godot by Timo K. (toger5)| <a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="', $txt['valid_xhtml'], '"><span>', $txt['xhtml'], '</span></a> |
 			', !empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']) ? '
                         <a id="button_rss" href="' . $scripturl . '?action=.xml;type=rss" class="new_win"><span>' . $txt['rss'] . '</span></a> | ' : '', '
 			<a id="button_wap2" href="', $scripturl , '?wap2" class="new_win"><span>', $txt['wap2'], '</span></a></li>

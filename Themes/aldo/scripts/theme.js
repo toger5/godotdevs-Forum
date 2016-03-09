@@ -1,4 +1,6 @@
 // The purpose of this code is to fix the height of overflow: auto blocks, because some browsers can't figure it out for themselves.
+
+
 function smf_codeBoxFix()
 {
 	var codeFix = document.getElementsByTagName('code');
@@ -96,42 +98,87 @@ if (is_ie7down && 'attachEvent' in window)
 	window.attachEvent('onload', smf_addListItemHoverEvents);
 
 var toggled = true;
+
+
 jQuery(function($) { // DOM is now read and ready to be manipulated
 
-	var size = $(".user").css("width")
-	var padding = $(".user").css("padding")
-	size = parseInt(size.slice(0,3));
-	padding = parseInt(padding.slice(0,2));
+	if(userLoggedIn){
+		createUserSeidebarToggle();
+		function createUserSeidebarToggle(){
+			var size = $(".user").css("width")
+			var padding = $(".user").css("padding")
+			size = parseInt(size.slice(0,3));
+			padding = parseInt(padding.slice(0,2));
 
-	var amount = "-" + String(size + padding - 30) + "px"
+			var amount = "-" + String(size + padding - 30) + "px"
 
-	$("#toggle-in").css("opacity", "1.0");
-	$("#toggle-out").css("opacity", "0.0");
-	$(".user").css("right", amount);
+			$("#toggle-in").css("opacity", "1.0");
+			$("#toggle-out").css("opacity", "0.0");
+			$(".user").css("right", amount);
 
 
 
-  $("#toggle-user-button").click(function () {
-		var size = $(".user").css("width")
-		var padding = $(".user").css("padding")
-		size = parseInt(size.slice(0,3));
-		padding = parseInt(padding.slice(0,2));
+		  $("#toggle-user-button").click(function () {
+				var size = $(".user").css("width")
+				var padding = $(".user").css("padding")
+				size = parseInt(size.slice(0,3));
+				padding = parseInt(padding.slice(0,2));
 
-		var amount = "-" + String(size + padding - 30) + "px"
-		if (toggled){
-			$("#toggle-out").animate({opacity: "1.0"});
-			$("#toggle-in").animate({opacity: "0.0"});
-			amount = "0px"
-			toggled = false
+				var amount = "-" + String(size + padding - 30) + "px"
+				if (toggled){
+					$("#toggle-out").animate({opacity: "1.0"});
+					$("#toggle-in").animate({opacity: "0.0"});
+					amount = "0px"
+					toggled = false
+				}
+				else{
+					toggled = true
+					$("#toggle-out").animate({opacity: "0.0"});
+					$("#toggle-in").animate({opacity: "1.0"});
+				}
+				$(".user").animate({
+	    		right: amount
+  			});
+		  });
+	}
+}
+	$(".feature-panel").click(function () {
+		scrollToInBar(event.target);
+		setTransparency($(event.target).position().left);
+
+	});
+	function setTransparency(pos){
+		var containerSize = $("#info_bar").width()
+		var centerOffset = (containerSize / 2) - ($(".feature-panel").width() / 2) - pos
+		for(i = 0; i < $(".feature-panel").length; i++){
+			var panel = $(".feature-panel")[ i ];
+			//var centerOffset = (containerSize / 2) - (parseInt($(".feature-panel").css("width")) / 2)
+			var a = $(panel).position().left + $(".feature-panel").width()
+			var b = $("#featured-projects").position().left - (containerSize / 2)
+			var panel_relativeToCenterPos = $(panel).position().left + ($(".feature-panel").width()/2) +	centerOffset - (containerSize / 2)
+			var opc = 1 - Math.abs((panel_relativeToCenterPos * panel_relativeToCenterPos) / (containerSize * 400))
+			console.log(opc);
+			$(panel).stop()
+			$(panel).animate({opacity: opc});
 		}
-		else{
-			toggled = true
-			$("#toggle-out").animate({opacity: "0.0"});
-			$("#toggle-in").animate({opacity: "1.0"});}
-			$(".user").animate({
-    		right: amount
-  		});
-  });
+	}
+	function scrollToInBar(objToscrollTo){
+		var pos = $(objToscrollTo).position().left
+		var containerSize = $("#info_bar").width()
+		var centerOffset = (containerSize / 2) - ($(".feature-panel").width() / 2) - pos
+		$("#featured-projects").animate({
+			left: centerOffset
+		});
+		setTransparency(pos);
+	}
+	function jumpToInBar(objToscrollTo){
+		var pos = $(objToscrollTo).position().left
+		var containerSize = $("#info_bar").width()
+		var centerOffset = (containerSize / 2) - ($(".feature-panel").width() / 2) - pos
+		$("#featured-projects").css("left",centerOffset + "px"); 
+		setTransparency(pos);
+	}
+	jumpToInBar(/*currently centeret position left of featureList*/ $(".feature-panel")[ 2 ]);
 });
 
 /*addToggelToUserRight();
