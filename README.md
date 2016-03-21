@@ -2,7 +2,7 @@
 
 There is currently a test instance online:
 
-#[Godotdevs.com](http://godotdevelopers.org/index.php)
+#[Godotdevs.com](http://www.godotdevelopers.org)
 
 The forum is based on the SMF 2.0 forum system.
 I installed the ALDO theme and modified colors and icons that it fits to the Godot engine.
