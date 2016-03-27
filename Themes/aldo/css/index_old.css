@@ -47,9 +47,9 @@ html,body{
 }
 body
 {
-	min-width: 800px;
+
 	background: #ffffff;
-	font: 103%/125% "Source Sans Pro",sans-serif;
+  font: 103%/125% "Source Sans Pro",sans-serif;
 	margin: 0;
 	padding: 0;
 }
@@ -84,10 +84,10 @@ form
 /* We can style the different types of input buttons to be uniform throughout different browsers and their color themes.
 	.button_submit - covers input[type=submit], input[type=button], button[type=submit] and button[type=button] in all browsers
 	.button_reset  - covers input[type=reset] and button[type=reset] throughout all browsers
-	.input_check	- covers input[type=checkbox] throughout all browsers
-	.input_radio	- covers input[type=radio] throughout all browsers
-	.input_text	 - covers input[type=text] throughout all browsers
-	.input_file	 - covers input[type=file] throughout all browsers
+	.input_check   - covers input[type=checkbox] throughout all browsers
+	.input_radio   - covers input[type=radio] throughout all browsers
+	.input_text    - covers input[type=text] throughout all browsers
+	.input_file    - covers input[type=file] throughout all browsers
 */
 
 input, button, select, textarea
@@ -118,14 +118,14 @@ textarea
 	font: 100%/130% verdana, Helvetica, sans-serif;
 }/*
 #main_content {
-	 padding: 0 8px 5px;
-	 box-shadow: 0px 10px 70px rgba(136, 136, 136, 0.67);
+    padding: 0 8px 5px;
+    box-shadow: 0px 10px 70px rgba(136, 136, 136, 0.67);
 }*/
 /* Buttons should be styled a bit differently, in order to make them look more button'ish. */
 .button_submit, .button_reset
 {
 	background: #3a7ab1;
-		  color: #ffffff !important;
+        color: #ffffff !important;
 	border: 1px solid #3a7ab1;
 	cursor: pointer;
 	font-weight: normal;
@@ -313,7 +313,7 @@ ul.reset, ul.reset li
 /* A quote, perhaps from another post. */
 blockquote.bbc_standard_quote, blockquote.bbc_alternate_quote
 {
-	font-size: 16px;
+	font-size: 12px;
 	color: #384363;
 	line-height: 1.4em;
 	background: url(../images/theme/quote.png) 0.1em 0.1em no-repeat;
@@ -398,7 +398,7 @@ code.bbc_code
 	padding: 12px;
 }
 .bbc_table tr:nth-child(even) {
-	 background-color: rgba(51, 94, 131, 0.07);
+    background-color: rgba(51, 94, 131, 0.07);
 }
 .bbc_u
 {
@@ -546,22 +546,14 @@ div.pagesection div.floatright input
 }
 
 /* Sticky topics get a different background */
-td.stats.stickybg.locked_sticky {
-	 color: white;
-	 background: #4282B7 url(http://godotdevelopers.org/forum/Themes/aldo/images/custom/overlay.png) repeat;
-}
-td.lastpost.stickybg.locked_sticky2 {
-	 color: white;
-	 background: #323A45 url(http://godotdevelopers.org/forum/Themes/aldo/images/custom/overlay.png) repeat;
-}
-/*.stickybg
+.stickybg
 {
-	background: #a6bddd; /*#97b2d8;*/ /*rgb(195, 195, 195);*/
+	background: rgb(195, 195, 195);
 }
 .stickybg2
 {
-	background: rgba(141, 181, 236, 0.77); /*rgba(81, 164, 234, 0.29);*/
-}*/
+	background: rgba(81, 164, 234, 0.29);
+}
 
 /* Locked posts get a different shade, too! */
 .lockedbg
@@ -852,9 +844,9 @@ div.title_bar
 	height: 34px;
 	overflow: hidden;
 	margin-bottom: 1px;
-		  -webkit-border-radius: 5px;
-		  -moz-border-radius: 5px;
-		  border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
 }
 
 /* rounded bars needs a different background here */
@@ -872,7 +864,7 @@ div.roundframe div.cat_bar h3.catbg
 div.title_barIC
 {
 	background: #f9f9f9;
-		  color: #323A45 !important;
+        color: #323A45 !important;
 	padding-left: 9px;
 	height: 34px;
 	overflow: hidden;
@@ -881,7 +873,7 @@ div.title_barIC
 div.title_barIC h4.titlebg
 {
 	background: #f9f9f9;
-		  color: #323A45 !important;
+        color: #323A45 !important;
 }
 #upshrinkHeaderIC p.pminfo
 {
@@ -964,7 +956,7 @@ table.table_grid td
 	padding: 0.5em 0 0.5em 0;
 }
 .catbg{
-	 border-bottom: 4px solid #478CBF;
+    border-bottom: 4px solid #478CBF;
 }
 table.table_grid thead tr.catbg th
 {
@@ -1009,7 +1001,7 @@ table.table_grid thead tr.catbg th
 	height: 11px;
 }
 /*span.topslice{
-	 border-top: 1px solid #BBBBBB;
+    border-top: 1px solid #BBBBBB;
 }*/
 .windowbg2 span.topslice
 {
@@ -1469,7 +1461,7 @@ table.table_list tbody.content td.icon
 {
 	font-weight: bold;
 	font-size: 110%;
-		  color: #444444;
+        color: #444444;
 }
 .table_list tbody.content td.children
 {
@@ -1825,6 +1817,7 @@ p#whoisviewing
 	height: 100%;
 	border-right: 4px solid #478CBF;
 	text-align: center;
+	padding-right: 0.3em;
 }
 .poster .smalltext{
 	color: #BBBBBB;
@@ -1885,7 +1878,7 @@ p#whoisviewing
 {
 	display: inline;
 }
-.poster .poster li.avatar, .poster li.blurb, li.postcount, li.im_icons ul
+.poster li.stars, .poster li.avatar, .poster li.blurb, li.postcount, li.im_icons ul
 {
 	margin-top: 0.5em;
 }
@@ -1963,11 +1956,11 @@ ul.quickbuttons li:hover
 	color:black;
 }
 ul.quickbuttons li {
-	 position: relative;
+    position: relative;
 		transition: all 0.5s ease;
 }
 ul.quickbuttons li a{
-	 color: #ABABAB;
+    color: #ABABAB;
 		transition: all 0.5s ease;
 }
 ul.quickbuttons li.quote_button:after
@@ -3599,13 +3592,13 @@ span.hidelink
 /*********************************Aldo (premium) theme by Mick idesign360.com***********************************/
 
 #header {
-		  background: rgba(35, 40, 47, 0.95) url(../images/custom/overlay.png) repeat;
-		  position: fixed;
-		  width: 100%;
-		  height: 100px;
-		  z-index: 1001;
-		  top: 0px;
-		  left: 0px;
+        background: rgba(35, 40, 47, 0.95) url(../images/custom/overlay.png) repeat;
+        position: fixed;
+        width: 100%;
+        height: 100px;
+        z-index: 1001;
+        top: 0px;
+        left: 0px;
 }
 #logo a {
 
@@ -3641,7 +3634,7 @@ span.hidelink
 .user img.avatar {
 	width: 100px;
 	height: 100px;
-  border-radius: 100%;
+  border-radius: 30%;
 }
 .user ul {
 	margin: 0;
@@ -3687,17 +3680,17 @@ span.hidelink
 	padding: 0 10px;
 	color: #ffffff;
 	font-size: 13px;
-		  text-transform: uppercase;
-		  transition: all 0.5s ease;
+        text-transform: uppercase;
+        transition: all 0.5s ease;
 }
 #navigation li a.active {
-		  background: transparent;
+        background: transparent;
 	color: #4384ba;
 	font-weight: normal;
 }
 #navigation li a:hover, #navigation li:hover a, #navigation li.sfhover a {
 	text-decoration: none;
-		  background: transparent;
+        background: transparent;
 	color: #4384ba;
 }
 #navigation li ul:after {
@@ -3737,9 +3730,9 @@ span.hidelink
 	width: 200px;
 	left: -999em;
 	margin-left: -3px;
-		  -webkit-border-radius: 4px;
-		  -moz-border-radius: 4px;
-		  border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
 }
 #navigation li ul ul {
 	margin: -27px 0 0 195px;
@@ -3775,12 +3768,12 @@ li:hover ul, #navigation li.sfhover ul {
 	z-index: 1;
 }
 #info_bar {
-	 background: #4384ba /*rgba(155, 89, 182, 0.95)*/ url(../images/custom/overlay.png) repeat;
-	 width: 100%;
+    background: #4384ba /*rgba(155, 89, 182, 0.95)*/ url(../images/custom/overlay.png) repeat;
+    width: 100%;
 		overflow: hidden;
 		position: relative;
 		height: 350px;
-	 margin-top: 100px;
+    margin-top: 100px;
 }
 #time {
 	padding: 16px 0 0 10px;
@@ -3789,8 +3782,8 @@ li:hover ul, #navigation li.sfhover ul {
 .news {
 	padding: 40px 0 0 10px;
 	color: #ffffff;
-		  font-size: 14px;
-		  line-height: 16px;
+        font-size: 14px;
+        line-height: 16px;
 }
 #time span {
 	color: #ffffff;
@@ -3802,7 +3795,7 @@ li:hover ul, #navigation li.sfhover ul {
 #footer {
 	text-align: center;
 	background: rgba(35, 40, 47, 0.95) url(../images/custom/overlay.png) repeat;
-		  color: #ffffff;
+        color: #ffffff;
 	padding: 40px;
 	font-size: 12px;
 }
@@ -3813,7 +3806,7 @@ li:hover ul, #navigation li.sfhover ul {
 #footer ul li a {
 	font-size: 12px;
 	color: #ffffff;
-		  transition: all 0.5s ease;
+        transition: all 0.5s ease;
 }
 #footer ul li a:hover {
 	font-size: 12px;
@@ -3827,25 +3820,25 @@ li:hover ul, #navigation li.sfhover ul {
 	margin: 0;
 }
 .go-top  {
-	 position: fixed;
-	 bottom: 2em;
-	 right: 2em;
-	 text-decoration: none;
-	 color: #ffffff;
-	 background: #1a2025 url(../images/custom/arrow-up.png) center center no-repeat;
-	 font-size: 14px;
-	 padding: 1.5em;
-	 display: none;
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+    text-decoration: none;
+    color: #ffffff;
+    background: #1a2025 url(../images/custom/arrow-up.png) center center no-repeat;
+    font-size: 14px;
+    padding: 1.5em;
+    display: none;
 		border-radius: 8px;
 }
 .go-top:hover {
-	 background: #4f9aff url(../images/custom/arrow-up.png) center center no-repeat
+    background: #4f9aff url(../images/custom/arrow-up.png) center center no-repeat
 }
 .social {
-	 padding: 60px;
-	 text-align: center;
-	 position: relative;
-	 background: rgba(50, 58, 69, 0.95) url(../images/custom/overlay.png) repeat;
+    padding: 60px;
+    text-align: center;
+    position: relative;
+    background: rgba(50, 58, 69, 0.95) url(../images/custom/overlay.png) repeat;
 }
 .social:after {
 	content: "";
@@ -3861,10 +3854,10 @@ li:hover ul, #navigation li.sfhover ul {
 	z-index: 1;
 }
 .icon-button {
-	 background: rgba(50, 58, 69, 0.95) url(../images/custom/overlay.png) repeat;
-		  -webkit-border-radius: 5px;
-		  -moz-border-radius: 5px;
-		  border-radius: 5px;
+    background: rgba(50, 58, 69, 0.95) url(../images/custom/overlay.png) repeat;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 2.0rem;
@@ -3874,9 +3867,9 @@ li:hover ul, #navigation li.sfhover ul {
 	position: relative;
 	text-align: center;
 	-webkit-user-select: none;
-		-moz-user-select: none;
-		 -ms-user-select: none;
-			  user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
 	width: 4.6rem;
 }
 .icon-button span {
@@ -3888,17 +3881,17 @@ li:hover ul, #navigation li.sfhover ul {
 	position: absolute;
 	top: 50%;
 	-webkit-transition: all 0.3s;
-		-moz-transition: all 0.3s;
-		  -o-transition: all 0.3s;
-			  transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
 	width: 0;
 }
 .icon-button:hover span {
 	width: 4.8rem;
 	height: 4.8rem;
-		  -webkit-border-radius: 5px;
-		  -moz-border-radius: 5px;
-		  border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
 	margin: -2.4rem;
 }
 .twitter span {
@@ -3926,41 +3919,40 @@ li:hover ul, #navigation li.sfhover ul {
 	position: absolute;
 	top: 0;
 	-webkit-transition: all 0.3s;
-		-moz-transition: all 0.3s;
-		  -o-transition: all 0.3s;
-			  transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
 	width: 4.6rem;
 	z-index: 10;
 }
 .icon-button .icon-twitter {
 	color: #999999;
-		  text-decoration: none;
+        text-decoration: none;
 }
 .icon-button .icon-facebook {
 	color: #999999;
-		  text-decoration: none;
+        text-decoration: none;
 }
 .icon-button .icon-google-plus {
 	color: #999999;
-		  text-decoration: none;
+        text-decoration: none;
 }
 .icon-button .icon-rss {
 	color: #999999;
-		  text-decoration: none;
+        text-decoration: none;
 }
 .icon-button:hover .icon-twitter, .icon-button:hover .icon-facebook, .icon-button:hover .icon-google-plus, .icon-button:hover .icon-rss {
 	color: #ffffff;
-		  text-decoration: none;
+        text-decoration: none;
 }
 #featured-projects{
 	width: 2800px;
-	margin: 0 auto;
-	height:inherit;
+	height: inherit;
 	position: absolute;
 /*	background-color: rgb(0,0,0);*/
 }
 .feature-panel{
-	float: left;
+	float:left;
 	height:100%;
 	width:400px;
 	transition: all 0.5s ease;
@@ -4029,7 +4021,7 @@ li:hover ul, #navigation li.sfhover ul {
 	opacity: 0.0;
 }
 .avatar img{
-	border-radius: 100%;
+	border-radius: 30%;
 	width: 80px;
 	}
 #project-Text{

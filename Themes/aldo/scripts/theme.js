@@ -142,22 +142,26 @@ jQuery(function($) { // DOM is now read and ready to be manipulated
 		  });
 	}
 }
-	$(".feature-panel").click(function () {
-		scrollToInBar(event.target);
-		setTransparency($(event.target).position().left);
+	$(".feature-panel").not(".feature-box").click(function () {
+		var clicked = event.target
+		if(event.target.nodeName == "IMG" || event.target.nodeName == "A" ){
+			clicked = event.target.parentNode
+		}
+		scrollToInBar(clicked);
+		setTransparency($(clicked).position().left);
 
 	});
 	function setTransparency(pos){
 		var containerSize = $("#info_bar").width()
 		var centerOffset = (containerSize / 2) - ($(".feature-panel").width() / 2) - pos
 		for(i = 0; i < $(".feature-panel").length; i++){
+			console.log($(".feature-panel").length);
 			var panel = $(".feature-panel")[ i ];
 			//var centerOffset = (containerSize / 2) - (parseInt($(".feature-panel").css("width")) / 2)
 			var a = $(panel).position().left + $(".feature-panel").width()
 			var b = $("#featured-projects").position().left - (containerSize / 2)
 			var panel_relativeToCenterPos = $(panel).position().left + ($(".feature-panel").width()/2) +	centerOffset - (containerSize / 2)
 			var opc = 1 - Math.abs((panel_relativeToCenterPos * panel_relativeToCenterPos) / (containerSize * 400))
-			console.log(opc);
 			$(panel).stop()
 			$(panel).animate({opacity: opc});
 		}
@@ -175,10 +179,10 @@ jQuery(function($) { // DOM is now read and ready to be manipulated
 		var pos = $(objToscrollTo).position().left
 		var containerSize = $("#info_bar").width()
 		var centerOffset = (containerSize / 2) - ($(".feature-panel").width() / 2) - pos
-		$("#featured-projects").css("left",centerOffset + "px"); 
+		$("#featured-projects").css("left",centerOffset + "px");
 		setTransparency(pos);
 	}
-	jumpToInBar(/*currently centeret position left of featureList*/ $(".feature-panel")[ 2 ]);
+	jumpToInBar(/*currently centeret position left of featureList*/ $(".feature-panel").not(".feature-box")[ Math.floor($(".feature-panel").length/2) ]);
 });
 
 /*addToggelToUserRight();

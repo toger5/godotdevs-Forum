@@ -165,7 +165,7 @@ function template_settings()
 		array(
 			'id' => 'twitter_url',
 			'label' => $txt['twitter_url'],
-			'type' => 'text',
+			'type' => 'https://twitter.com/godotengine',
 		),
 		array(
 			'id' => 'google+_url',

@@ -42,7 +42,6 @@ function template_init()
 {
 	global $context, $settings, $options, $txt;
 
-
 	/* Use images from default theme when using templates from the default theme?
 		if this is 'always', images from the default theme will be used.
 		if this is 'defaults', images from the default theme will only be used with default templates.
@@ -78,9 +77,7 @@ function template_init()
 
 	$settings['twitter_url'] = 'https://twitter.com/godotengine';
 	$settings['facebook_url'] = 'https://www.facebook.com/groups/godotengine/';
-	$settings['rss_url'] = 'http://godotdevelopers.org/forum/index.php?action=.xml;type=rss';
-	$settings['git_url'] = 'https://github.com/godotengine/';
-
+	$settings['rss_url'] = 'http://godotdevs.byethost33.com/index.php?action=.xml;type=rss';
 }
 
 // The main sub template above the content.
@@ -96,9 +93,8 @@ function template_html_above()
 	// The ?fin20 part of this link is just here to make sure browsers don't cache it wrongly.
 	echo '
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>',
-	/*<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/font-awesome.css" />*/'
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/font-awesome.css" />
 	<link rel="stylesheet" type="text/css" href="', $settings['theme_url'], '/css/index', $context['theme_variant'], '.css?fin20" />';
 
 	// Some browsers need an extra stylesheet due to bugs/compatibility issues.
@@ -150,14 +146,10 @@ function template_html_above()
 	echo '
 	<meta http-equiv="Content-Type" content="text/html; charset=', $context['character_set'], '" />
 	<meta name="description" content="', $context['page_title_html_safe'], '" />', !empty($context['meta_keywords']) ? '
-	<meta name="keywords" content="' . $context['meta_keywords'] . '" />' : '',
-	//<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="' . $context['meta_keywords'] . '" />' : '', '
 
-	'<title>', $context['page_title_html_safe'], '</title>
-	<link href="http://godotdevelopers.org/forum/favicon.png" rel="shortcut icon">
-
-
-  <meta name="viewport" content="width=device-width,width=794px;" />';
+	<title>', $context['page_title_html_safe'], '</title>';
+  //<meta name="viewport" content="width=device-width; initial-scale = 1.0; maximum-scale=1.0; user-scalable=no" />
 	// Please don't index these Mr Robot.
 	if (!empty($context['robot_no_index']))
 		echo '
@@ -201,13 +193,12 @@ function template_html_above()
 function template_body_above()
 {
 	global $context, $settings, $options, $scripturl, $txt, $modSettings;
-	global $sourcedir, $options, $smcFunc, $language;
-
 
 	echo '
 
 	<div id="header">
 		<div class="wrapper">
+
 			<div id="logo">
 				<a href="'.$scripturl.'" title=""></a>
 			</div>
@@ -220,66 +211,41 @@ function template_body_above()
 
 	<div id="info_bar">';
 
-//echo $request
-
-
-
-
-
-
-
-
-
-
-
-
-
 //The feature bar for all featured Projects______________________meintest
-db_extend('packages');
-db_extend('extra');
-$request = $smcFunc['db_query']('', '
-	SELECT id_topic, id_attach, subject, karma_good, karma_bad
-	FROM smf_attachments, smf_messages
-	WHERE filename LIKE {text:fileProjectName} and filename NOT LIKE {text:fileNot} and smf_messages.id_msg = smf_attachments.id_msg Order by (karma_good - karma_bad)',
-	array(
-		'fileProjectName'=>"projectThumbnail_%",
-		'fileNot' => "%png_thumb",
-	)
-
-);
-//echo '<p>text:    ',$smcFunc['db_fetch_row']($request)[0],'<p>';
 /*
-echo'<p>jo<p>';*/
-$amount = $smcFunc['db_num_rows']($request);
-// $rowlist = array();
-// for($i = 0;$i < $amount;$i++){
-// 	$rowlist->append($smcFunc['db_fetch_row']($request));
-// }
+$request = $smcFunc['db_query']('', '
+	SELECT filename
+	FROM {db_prefix}attachments
+	WHERE ID = 0'
+));*/
+/*
 echo'
-	<div id="featured-projects" style="width: ', $amount * 400,'px">';
-	for($i = 0;$i < $amount;$i++){
-		$row = $smcFunc['db_fetch_row']($request);
+	<div id="featured-projects">';
+	for($i = 0;$i <= 6; $i++){
 		echo'
-		<div class="feature-panel" id="feature-panel-click">
-			<div class="feature-box">
-				<img class="feature_image" src="', $scripturl, '?action=dlattach;topic=',$row[0],'.0;attach=',$row[1],';image ',/*,$row[0],'*/'"></img>',
-				'<a href="', $scripturl, '?topic=',$row[0],'">',$row[2],'</a>
+		<div class="feature-panel">
+			<div class="feature-box">'
+			if ($smcFunc['db_num_rows']($request) > 0){
+				echo
+				'<img class="feature_image" src="/', $boarddir, 'attachments/',$smcFunc['db_fetch_row']($request)[0,'"><img>'
+				'<p>', $smcFunc['db_fetch_row']($request)[0] ,'</p>';
+			}
+			echo'
 			</div>
 		</div>';
-	}
+	}*/
 //$conn->close();
 
 //alternativer aber funtionierdener featurebox code
-	/*  echo'
+	  echo'
 			<div id="featured-projects">';
       for($i = 0;$i <= 6; $i++){
-        echo'
-				<div class="feature-panel">
+        echo'<div class="feature-panel">
         <div class="feature-box"></div>
         <p>Project ', $i ,'</p>
 
       </div>';
-    }*/
+    }
 
 
     echo'
@@ -388,11 +354,11 @@ function template_body_below()
         <div class="social">';
 				if(!empty($settings['facebook_url']))
 				echo '
-		                     <a href="', $settings['facebook_url'] , '" class="icon-button facebook"><i class="fa fa-facebook"></i><span></span></a>';
+		                     <a href="', $settings['facebook_url'] , '" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a>';
 
 				if(!empty($settings['twitter_url']))
 				echo '
-		                     <a href="', $settings['twitter_url'] , '" class="icon-button twitter"><i class="fa fa-twitter"></i><span></span></a>';
+		                     <a href="', $settings['twitter_url'] , '" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a>';
 
 				if(!empty($settings['google+_url']))
 				echo '
@@ -400,11 +366,7 @@ function template_body_below()
 
 				if(!empty($settings['rss_url']))
 				echo '
-		                     <a href="', $settings['rss_url'] , '" class="icon-button rss"><i class="fa fa-rss"></i><span></span></a>';
-
-				if(!empty($settings['git_url']))
-				echo '
-												 <a href="', $settings['git_url'] , '" class="icon-button git"><i class="fa fa-github"></i><span></span></a>';
+		                     <a href="', $settings['rss_url'] , '" class="icon-button rss"><i class="icon-rss"></i><span></span></a>';
 echo '
 
         </div>';
