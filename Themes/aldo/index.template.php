@@ -157,7 +157,7 @@ function template_html_above()
 	<link href="http://godotdevelopers.org/forum/favicon.png" rel="shortcut icon">
 
 
-  <meta name="viewport" content="width=device-width,width=794px;" />';
+  <meta name="viewport" content="width=device-width,width=794px" />';
 	// Please don't index these Mr Robot.
 	if (!empty($context['robot_no_index']))
 		echo '
