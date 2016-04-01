@@ -45,6 +45,7 @@ html,body{
 	//overflow: hidden;
 
 }
+
 body
 {
 	min-width: 800px;
@@ -1930,7 +1931,8 @@ p#whoisviewing
 .keyinfo
 {
 	float: left;
-	width: 40%;
+	width: 44%;
+	font-size: 80%;
 }
 .modifybutton
 {
@@ -2064,7 +2066,7 @@ ul.quickbuttons li.inline_mod_check
 }
 .inner
 {
-	padding: 1em 1em 2px 0;
+	padding: 0.5em 1em 2px 0;
 	margin: 0 1em 0 0;
 	//border-top: 1px solid #999;
 
@@ -3609,22 +3611,6 @@ span.hidelink
 		border: none;
 	}
 }
-
-/* Styles for mobile devices
----------------------------------------------------- */
-@media (max-height: 800px) {
-	#header {
-				background: rgba(35, 40, 47, 0.95) url(../images/custom/overlay.png) repeat;
-				position: absolute;
-				width: 100%;
-				height: 100px;
-				z-index: 1001;
-				top: 0px;
-				left: 0px;
-	}
-}
-/*********************************Aldo (premium) theme by Mick idesign360.com***********************************/
-@media (min-height: 800px) {
 #header {
 		  background: rgba(35, 40, 47, 0.95) url(../images/custom/overlay.png) repeat;
 		  position: fixed;
@@ -3634,7 +3620,9 @@ span.hidelink
 		  top: 0px;
 		  left: 0px;
 }
-}
+
+/*********************************Aldo (premium) theme by Mick idesign360.com***********************************/
+
 #logo a {
 
 	float: left;
@@ -3645,11 +3633,12 @@ span.hidelink
 	background: url(../images/custom/logo.png) no-repeat;
 }
 .user {
+  z-index: 2;
 	position: fixed;
 	right: -350px;
-	top: 450px;
+	top: 30%;
 	width: 350px;
-	height: 100px;
+	/*height: 100px;*/
 	margin-top: 25px;
 	padding: 30px 0px 30px 45px;
 	color: #ffffff;
@@ -4065,4 +4054,58 @@ li:hover ul, #navigation li.sfhover ul {
 	font-weight: bold;
 	text-align: center;
 	margin:10px;
+}
+
+
+/* Styles for mobile devices
+---------------------------------------------------- */
+@media (max-width: 800px) {
+	body
+	{
+		font: 140%/125% "Source Sans Pro",sans-serif; /*bigger font*/
+	}
+	.moderatorbar{
+		padding-top: 1em;
+		width: 100%;
+	}
+	.postarea, .moderatorbar {
+    padding: 0 0 0 5%;
+		margin: 0;
+    width: 95%;
+    float: left;
+	}
+	.poster {
+	    float: left;
+	    width: 100%;
+	    text-align: center;
+	}
+	.post_wrapper {
+    border-bottom: 2px solid #9A9A9A;
+	}
+
+	li.stars, li.postcount, .karma, .profile{
+		height: 0;
+		display: none;
+	}
+	#navigation li a {
+		padding: 0 3px;
+	}
+	.keyinfo {
+  	display: none;
+	}
+	ul.quickbuttons {
+    float: left;
+	}
+}
+/*get rid of the annoying toolbar on small diplays*/
+@media (max-height: 800px) {
+	#header {
+				background: rgba(35, 40, 47, 0.95) url(../images/custom/overlay.png) repeat;
+				position: absolute;
+				width: 100%;
+				height: 100px;
+				z-index: 1001;
+				top: 0px;
+				left: 0px;
+	}
 }
