@@ -294,10 +294,19 @@ echo'
 				<p>', $context['random_news_line'], '</p>';
 */
 			echo '
-				</div>
+			</div>
 		</div>
 	</div>
 
+		<div id="barTwo_News">
+		<p id="project-Text"> Projects </p>';
+		if (!empty($settings['enable_news']))
+			echo '
+			<div id="newsContainer">
+				<p>', $context['random_news_line'], '</p>
+			</div>';
+		echo'
+		</div>
 	<div id="main_b">';
 
 
@@ -358,18 +367,10 @@ echo'
 
 
 
-
-
-
-
-
-
-
-      echo'
+echo'
 
       <div class="wrapper">
-        <p id="project-Text"> Projects </p>
-			<div id="main_content">';
+				<div id="main_content">';
 
 			// Show the navigation tree.
 			theme_linktree();
