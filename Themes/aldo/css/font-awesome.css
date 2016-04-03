@@ -8,13 +8,13 @@
  *  License
  *  -------------------------------------------------------
  *  - The Font Awesome font is licensed under the SIL Open Font License v1.1 -
- *    http://scripts.sil.org/OFL
+ *	 http://scripts.sil.org/OFL
  *  - Font Awesome CSS, LESS, and SASS files are licensed under the MIT License -
- *    http://opensource.org/licenses/mit-license.html
+ *	 http://opensource.org/licenses/mit-license.html
  *  - Font Awesome documentation licensed under CC BY 3.0 License -
- *    http://creativecommons.org/licenses/by/3.0/
+ *	 http://creativecommons.org/licenses/by/3.0/
  *  - Attribution is no longer required in Font Awesome 3.0, but much appreciated:
- *    "Font Awesome by Dave Gandy - http://fontawesome.io"
+ *	 "Font Awesome by Dave Gandy - http://fontawesome.io"
 
  *  Contact
  *  -------------------------------------------------------
@@ -275,42 +275,42 @@ ul.icons-ul > li .icon-li {
 }
 @-moz-keyframes spin {
   0% {
-    -moz-transform: rotate(0deg);
+	 -moz-transform: rotate(0deg);
   }
   100% {
-    -moz-transform: rotate(359deg);
+	 -moz-transform: rotate(359deg);
   }
 }
 @-webkit-keyframes spin {
   0% {
-    -webkit-transform: rotate(0deg);
+	 -webkit-transform: rotate(0deg);
   }
   100% {
-    -webkit-transform: rotate(359deg);
+	 -webkit-transform: rotate(359deg);
   }
 }
 @-o-keyframes spin {
   0% {
-    -o-transform: rotate(0deg);
+	 -o-transform: rotate(0deg);
   }
   100% {
-    -o-transform: rotate(359deg);
+	 -o-transform: rotate(359deg);
   }
 }
 @-ms-keyframes spin {
   0% {
-    -ms-transform: rotate(0deg);
+	 -ms-transform: rotate(0deg);
   }
   100% {
-    -ms-transform: rotate(359deg);
+	 -ms-transform: rotate(359deg);
   }
 }
 @keyframes spin {
   0% {
-    transform: rotate(0deg);
+	 transform: rotate(0deg);
   }
   100% {
-    transform: rotate(359deg);
+	 transform: rotate(359deg);
   }
 }
 /* Icon rotations and mirroring */
@@ -353,7 +353,7 @@ ul.icons-ul > li .icon-li {
   transform: scale(1, -1);
 }
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
-   readers do not read off random characters that represent icons */
+	readers do not read off random characters that represent icons */
 .icon-glass:before {
   content: "\f000";
 }
