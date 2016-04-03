@@ -3619,6 +3619,7 @@ span.hidelink
 		  z-index: 1001;
 		  top: 0px;
 		  left: 0px;
+			left: auto;
 }
 
 /*********************************Aldo (premium) theme by Mick idesign360.com***********************************/
@@ -3781,7 +3782,7 @@ li:hover ul, #navigation li.sfhover ul {
 #info_bar:after {
 	content: "";
 	position: absolute;
-	top: 410px;
+  bottom: 0px;
 	left: 50%;
 	margin-left: -20px;
 	border-style: solid;
