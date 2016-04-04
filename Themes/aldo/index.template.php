@@ -116,14 +116,16 @@ function template_html_above()
 	echo '
 	<script type="text/javascript" src="', $settings['default_theme_url'], '/scripts/script.js?fin20"></script>';
 	//declaration fuer meine variablen in der theme.js file
-		$UserLoggedIn = "false";
-	if(!empty($context['user']['avatar'])){
+	$UserLoggedIn = "false";
+	if($context['user']['is_logged']){
 		$UserLoggedIn = "true";
 	}else{
 		$UserLoggedIn = "false";
 	}
+
 	echo'
 	<script type="text/javascript">
+		<!--',$context['user']['is_logged'],'-->
 	 	var userLoggedIn = ',$UserLoggedIn,';
 	</script>
 
@@ -194,6 +196,7 @@ function template_html_above()
 	echo $context['html_headers'];
 
 	echo '
+<script type="text/javascript" src="http://www.godotdevelopers.org/forum/Themes/aldo/scripts/smf-english-family.js" charset="utf-8"></script>
 </head>
 <body>';
 }
@@ -418,10 +421,11 @@ echo '
 	<div id="footer">
             <div class="wrapper">
 		<ul class="reset">
-			<li class="copyright">', theme_copyright(), ' | <strong>Aldo</strong> by Mick. G, adapted to Godot by Timo K. (toger5)| <a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="', $txt['valid_xhtml'], '"><span>', $txt['xhtml'], '</span></a> |
+			<li class="copyright">', theme_copyright(), ' <br> <strong>Aldo</strong> Theme by Mick. G, adapted to GodotDevelopers.org by Timo K. (toger5) |  <a id="button_xhtml" href="http://validator.w3.org/check?uri=referer" target="_blank" class="new_win" title="', $txt['valid_xhtml'], '"><span>', $txt['xhtml'], '</span></a> |
 			', !empty($modSettings['xmlnews_enable']) && (!empty($modSettings['allow_guestAccess']) || $context['user']['is_logged']) ? '
-                        <a id="button_rss" href="' . $scripturl . '?action=.xml;type=rss" class="new_win"><span>' . $txt['rss'] . '</span></a> | ' : '', '
+                        <a id="button_rss" href="' . $scripturl . '?action=.xml;type=rss" class="new_win"><span>' . $txt['rss'] . '</span></a>  |  ' : '', '
 			<a id="button_wap2" href="', $scripturl , '?wap2" class="new_win"><span>', $txt['wap2'], '</span></a></li>
+<li class="copyright">Godot Developers &copy 2016 Andre A.B., Timo K. </li>
 		</ul>';
 
 	// Show the load time?

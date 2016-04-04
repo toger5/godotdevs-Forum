@@ -103,6 +103,7 @@ var toggled = true;
 jQuery(function($) { // DOM is now read and ready to be manipulated
 
 	if(userLoggedIn){
+		console.log('userLoggedIN')
 		createUserSeidebarToggle();
 		function createUserSeidebarToggle(){
 			var size = $(".user").css("width")
@@ -116,9 +117,10 @@ jQuery(function($) { // DOM is now read and ready to be manipulated
 			$("#toggle-out").css("opacity", "0.0");
 			$(".user").css("right", amount);
 
-
+			console.log('userLoginSidebarCreated')
 
 		  $("#toggle-user-button").click(function () {
+				console.log('toggleClicked')
 				var size = $(".user").css("width")
 				var padding = $(".user").css("padding")
 				size = parseInt(size.slice(0,3));
