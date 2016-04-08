@@ -243,7 +243,7 @@ db_extend('extra');
 $request = $smcFunc['db_query']('', '
 	SELECT id_topic, id_attach, subject, karma_good, karma_bad
 	FROM smf_attachments, smf_messages
-	WHERE filename LIKE {text:fileProjectName} and filename NOT LIKE {text:fileNot} and smf_messages.id_msg = smf_attachments.id_msg Order by (karma_good - karma_bad)',
+	WHERE filename LIKE {text:fileProjectName} and filename NOT LIKE {text:fileNot} and smf_messages.id_msg = smf_attachments.id_msg Order by (karma_good - karma_bad) DESC',
 	array(
 		'fileProjectName'=>"projectThumbnail_%",
 		'fileNot' => "%png_thumb",
