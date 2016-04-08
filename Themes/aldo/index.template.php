@@ -196,7 +196,7 @@ function template_html_above()
 	echo $context['html_headers'];
 
 	echo '
-<script type="text/javascript" src="http://www.godotdevelopers.org/forum/Themes/aldo/scripts/smf-english-family.js" charset="utf-8"></script>
+<script type="text/javascript" src="http://www.godotdevelopers.org/forum/Themes/aldo/scripts/smf-english-hotlink-family.js" charset="utf-8"></script>
 </head>
 <body>';
 }

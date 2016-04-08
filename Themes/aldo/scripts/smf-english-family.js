@@ -1,6 +1,7 @@
 // MOD Title: Simple Image Upload
 // MOD Author: Sium < admin@postimage.org > (N/A) http://postimage.org/
 // MOD Version: 1.5.0
+// thumbnails
 
 if(typeof postimage_lang==='undefined')
 {
