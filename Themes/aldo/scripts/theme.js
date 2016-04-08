@@ -119,7 +119,7 @@ jQuery(function($) { // DOM is now read and ready to be manipulated
 
 			console.log('userLoginSidebarCreated')
 
-		  $("#toggle-user-button").click(function () {
+		  $("#toggle-user-button").click(function (event) {
 				console.log('toggleClicked')
 				var size = $(".user").css("width")
 				var padding = $(".user").css("padding")
@@ -144,7 +144,8 @@ jQuery(function($) { // DOM is now read and ready to be manipulated
 		  });
 	}
 }
-	$(".feature-panel").not(".feature-box").click(function () {
+	$(".feature-panel").not(".feature-box").click(function (event) {
+		console.log("clicked on a feature box");
 		var clicked = event.target
 		if(event.target.nodeName == "IMG" || event.target.nodeName == "A" ){
 			clicked = event.target.parentNode
