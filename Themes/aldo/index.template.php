@@ -250,17 +250,33 @@ $request = $smcFunc['db_query']('', '
 	)
 
 );
-//echo '<p>text:    ',$smcFunc['db_fetch_row']($request)[0],'<p>';
-/*
-echo'<p>jo<p>';*/
+
+# Sort an array in a way, so that the most voted index ends up in the middle
+# 0 1 2 3 4 5 6 => 6 4 2 0 1 3 5
 $amount = $smcFunc['db_num_rows']($request);
-// $rowlist = array();
-// for($i = 0;$i < $amount;$i++){
-// 	$rowlist->append($smcFunc['db_fetch_row']($request));
-// }
+$rowlist = array();
+# if number of rows is even...
+if (is_int($amount/2)) {
+	for ($i = ($amount); $i > 0; $i = $i-2) {
+		$rowlist[] = $i-1;
+	}
+	for ($i = 0; $i < $amount-1; $i = $i+2) {
+		$rowlist[] = $i;
+	}
+# else number of rows is odd...
+} else {
+	for ($i = ($amount); $i > 0; $i = $i-2) {
+		$rowlist[] = $i-1;
+	}
+	for ($i = 0; $i < $amount-1; $i = $i+2) {
+		$rowlist[] = $i+1;
+	}
+}
+
 echo'
 	<div id="featured-projects" style="width: ', $amount * 400,'px">';
 	for($i = 0;$i < $amount;$i++){
+		$row = $smcFunc['db_data_seek']($request, $rowlist[$i]);
 		$row = $smcFunc['db_fetch_row']($request);
 		echo'
 		<div class="feature-panel" id="feature-panel-click">
@@ -270,6 +286,7 @@ echo'
 			</div>
 		</div>';
 	}
+
 //$conn->close();
 
 //alternativer aber funtionierdener featurebox code
