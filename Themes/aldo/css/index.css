@@ -3955,6 +3955,20 @@ li:hover ul, #navigation li.sfhover ul {
 		  border-radius: 5px;
 	margin: -2.4rem;
 }
+
+/*editor edit fa-buttons*/
+.fa-button {
+	opacity: 0.5;
+	transition: all 0.3s ease;
+	margin: 0px;
+	min-width: 22px;
+}
+.fa-button:hover {
+	opacity: 1;
+	transition: all 0.3s ease;
+}
+
+
 .twitter span {
 	background-color: #5EA9DD;
 }
