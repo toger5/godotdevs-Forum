@@ -104,7 +104,7 @@ jQuery(function($) { // DOM is now read and ready to be manipulated
 
 	if(userLoggedIn){
 		console.log('userLoggedIN')
-		createUserSeidebarToggle();
+
 		function createUserSeidebarToggle(){
 			var size = $(".user").css("width")
 			var padding = $(".user").css("padding")
@@ -143,6 +143,7 @@ jQuery(function($) { // DOM is now read and ready to be manipulated
   			});
 		  });
 	}
+	createUserSeidebarToggle();
 }
 	$(".feature-panel").not(".feature-box").on("click",function(event) {
 		console.log("clicked on a feature box");
