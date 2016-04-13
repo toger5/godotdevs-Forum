@@ -107,11 +107,11 @@ jQuery(function($) { // DOM is now read and ready to be manipulated
 
 		function createUserSeidebarToggle(){
 			var size = $(".user").css("width")
-			var padding = $(".user").css("padding")
+			var padding = $(".user").css("padding-left")
 			size = parseInt(size.slice(0,3));
 			padding = parseInt(padding.slice(0,2));
 
-			var amount = "-" + String(size + padding - 30) + "px"
+			var amount = "-" + String(size + padding - 45) + "px"
 
 			$("#toggle-in").css("opacity", "1.0");
 			$("#toggle-out").css("opacity", "0.0");
@@ -120,13 +120,13 @@ jQuery(function($) { // DOM is now read and ready to be manipulated
 			console.log('userLoginSidebarCreated')
 
 		  $("#toggle-user-button").on("click",function(event) {
-				console.log('toggleClicked')
+				console.log('toggleClicked ' + String(toggled))
 				var size = $(".user").css("width")
-				var padding = $(".user").css("padding")
+				var padding = $(".user").css("padding-left")
 				size = parseInt(size.slice(0,3));
 				padding = parseInt(padding.slice(0,2));
-
-				var amount = "-" + String(size + padding - 30) + "px"
+				var amount = "-" + String(size + padding - 45) + "px"
+				console.log(amount);
 				if (toggled){
 					$("#toggle-out").animate({opacity: "1.0"});
 					$("#toggle-in").animate({opacity: "0.0"});
@@ -138,6 +138,7 @@ jQuery(function($) { // DOM is now read and ready to be manipulated
 					$("#toggle-out").animate({opacity: "0.0"});
 					$("#toggle-in").animate({opacity: "1.0"});
 				}
+				console.log(amount);
 				$(".user").animate({
 	    		right: amount
   			});

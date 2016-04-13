@@ -1836,10 +1836,11 @@ p#whoisviewing
 {
 	float: left;
 	width: 10em;
-	margin-right: 2em;
+	margin: 0 2em 0 1em;
 	height: 100%;
-	border-right: 4px solid #478CBF;
+	border: 1px solid #478CBF;
 	text-align: center;
+	border-radius: 12px;
 }
 .poster .smalltext{
 	color: #BBBBBB;
