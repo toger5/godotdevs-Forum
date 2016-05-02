@@ -326,18 +326,16 @@ blockquote.bbc_standard_quote, blockquote.bbc_alternate_quote
 	padding: 1.1em 1.4em;
 	margin: 0.1em 0 0.3em 0;
 	overflow: auto;
-	border-bottom: 1px solid #B7B7B7;
-	border-top: 1px solid #B7B7B7;
 }
 
 /* Alterate blockquote stylings */
 blockquote.bbc_standard_quote
 {
-  background-color: #DAE8E8;
+  background-color: #BDBDBD;
 }
 blockquote.bbc_alternate_quote
 {
-	background-color: #f2e3d9;
+	background-color: #607D8B;
 }
 
 /* A code block - maybe PHP ;). */
