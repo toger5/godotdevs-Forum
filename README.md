@@ -1,6 +1,6 @@
 #A SMF 2.0 forum for the godot community.
 
-There is currently a test instance online:
+There Forum is online:
 
 #[Godotdevelopers.org](http://www.godotdevelopers.org)
 
